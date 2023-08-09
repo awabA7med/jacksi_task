@@ -19,7 +19,7 @@ class _CatagoriesWidgetState extends State<CatagoriesWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.all(16),
           child: BigText(
             text: "التصنيفات",
             fontSize: 16,

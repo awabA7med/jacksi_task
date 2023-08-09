@@ -4,10 +4,10 @@ import '../model/category.dart';
 
 class CatagoriesController extends GetxController {
   //
-  List<Catagories> catagoriesList = [
-    Catagories(id: 1, name: "تصنيف 1", icon: AppAssets.cat1),
-    Catagories(id: 1, name: "تصنيف 2", icon: AppAssets.cat2),
-    Catagories(id: 1, name: "تصنيف 3", icon: AppAssets.cat3),
+  List<Catagory> catagoriesList = [
+    Catagory(id: 1, name: "تصنيف 1", icon: AppAssets.cat1),
+    Catagory(id: 1, name: "تصنيف 2", icon: AppAssets.cat2),
+    Catagory(id: 1, name: "تصنيف 3", icon: AppAssets.cat3),
   ];
 
   bool isLoading = true;
