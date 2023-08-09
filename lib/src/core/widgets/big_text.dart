@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jacksi_task/src/core/utils/app_colors.dart';
 
 class BigText extends StatelessWidget {
   const BigText(
@@ -22,7 +23,7 @@ class BigText extends StatelessWidget {
       textAlign: align ?? TextAlign.center,
       style: style ??
           TextStyle(
-            color: fontColor ?? const Color(0xff333333),
+            color: fontColor ?? AppColors.text,
             fontSize: fontSize ?? 14,
             fontWeight: fontWeight ?? FontWeight.bold,
           ),

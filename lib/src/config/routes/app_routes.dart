@@ -6,7 +6,5 @@ class AppRoutes {
   }
 
   // routes
-  static List<GetPage<dynamic>>? routes = [
-    //
-  ];
+  static List<GetPage<dynamic>>? routes = [];
 }

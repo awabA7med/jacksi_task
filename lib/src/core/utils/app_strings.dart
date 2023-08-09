@@ -1,4 +1,4 @@
 class AppStrings {
   static const appName = 'jacksi_task';
-  static const fontFamily = '';
+  static const fontFamily = 'Montserrat';
 }
