@@ -15,10 +15,11 @@ dependencies:
   get: ^4.6.5
   flutter_svg: ^2.0.4
   lottie: ^2.3.2
-  cached_network_image: ^3.2.1
+  cached_network_image: ^3.2.3
   flutter_vector_icons: ^2.0.0
   shimmer: ^3.0.0
   equatable: ^2.0.5
+  image_picker: ^1.0.2
  
 
 dev_dependencies:
@@ -41,10 +42,10 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: assets/fonts/Montserrat-Bold.ttf
-        - asset: assets/fonts/Montserrat-Medium.ttf
-        - asset: assets/fonts/Montserrat-Regular.ttf
-        - asset: assets/fonts/Montserrat-Light.ttf
+        - asset: assets/fonts/Montserrat-Arabic Bold 700.otf
+        - asset: assets/fonts/Montserrat-Arabic Light 300.otf
+        - asset: assets/fonts/Montserrat-Arabic Medium 500.otf
+        - asset: assets/fonts/Montserrat-Arabic Regular 400.otf
   
   #   - family: Trajan Pro
   #     fonts:

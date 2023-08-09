@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:jacksi_task/src/core/widgets/big_text.dart';
-import 'package:jacksi_task/src/features/home_screen/view/content/catagories/controller/catagories_controller.dart';
 import 'package:jacksi_task/src/features/home_screen/view/content/catagories/view/content/catagories_list_view.dart';
+import 'package:jacksi_task/src/features/home_screen/view/content/catagories/controller/catagories_controller.dart';
 
 class CatagoriesWidget extends StatefulWidget {
   const CatagoriesWidget({super.key});
@@ -18,10 +18,13 @@ class _CatagoriesWidgetState extends State<CatagoriesWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const BigText(
-          text: "التصنيفات",
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: BigText(
+            text: "التصنيفات",
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
         ),
         CatagoriesListView(),
       ],

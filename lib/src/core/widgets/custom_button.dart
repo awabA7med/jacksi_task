@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jacksi_task/src/core/utils/app_colors.dart';
-
 import 'small_text.dart';
 
 class CustomButton extends StatelessWidget {
