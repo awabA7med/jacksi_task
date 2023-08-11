@@ -6,7 +6,7 @@ import 'package:jacksi_task/src/core/utils/app_colors.dart';
 import 'package:jacksi_task/src/core/widgets/big_text.dart';
 import 'package:jacksi_task/src/features/product/view/add_product.dart';
 
-AppBar customAppBar() {
+AppBar homeAppBar() {
   return AppBar(
     title: const BigText(text: "المنتجات", fontSize: 20),
     actions: [
@@ -14,7 +14,7 @@ AppBar customAppBar() {
         padding: EdgeInsetsDirectional.only(end: Get.width * .07),
         child: InkWell(
           onTap: () {
-            Get.to(() => const AddProductScreen());
+            Get.to(() => AddProductScreen());
           },
           child: Container(
               decoration: BoxDecoration(

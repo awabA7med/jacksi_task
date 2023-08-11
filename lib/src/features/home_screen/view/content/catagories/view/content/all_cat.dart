@@ -15,7 +15,7 @@ class AllCatWidget extends StatelessWidget {
       builder: (catagoriesController) => InkWell(
         splashColor: Colors.transparent,
         onTap: () {
-          catagoriesController.updateSelectCat(-1);
+          catagoriesController.updateSelectCatIndex(-1);
         },
         child: Padding(
           padding: const EdgeInsetsDirectional.only(start: 16),
@@ -23,7 +23,7 @@ class AllCatWidget extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(9),
-                border: catagoriesController.selectedCat == -1
+                border: catagoriesController.selectedCatIndex == -1
                     ? Border.all(color: AppColors.primary)
                     : null),
             child: Column(

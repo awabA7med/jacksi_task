@@ -40,7 +40,7 @@ flutter:
       - assets/icons/
 
   fonts:
-    - family: Montserrat
+    - family: Montserrat-Arabic
       fonts:
         - asset: assets/fonts/Montserrat-Arabic Bold 700.otf
         - asset: assets/fonts/Montserrat-Arabic Light 300.otf

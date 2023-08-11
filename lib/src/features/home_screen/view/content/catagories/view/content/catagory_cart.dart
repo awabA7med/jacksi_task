@@ -16,7 +16,7 @@ class CatagoryCard extends StatelessWidget {
       builder: (catagoriesController) => InkWell(
         splashColor: Colors.transparent,
         onTap: () {
-          catagoriesController.updateSelectCat(index);
+          catagoriesController.updateSelectCatIndex(index);
         },
         child: Padding(
           padding: const EdgeInsetsDirectional.only(start: 10),
@@ -24,7 +24,7 @@ class CatagoryCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(9),
-              border: catagoriesController.selectedCat == index
+              border: catagoriesController.selectedCatIndex == index
                   ? Border.all(color: AppColors.primary)
                   : null,
             ),

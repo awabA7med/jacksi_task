@@ -13,14 +13,20 @@ class CatagoriesController extends GetxController {
   bool isLoading = true;
 
   // ? i'll use -1 value to all catagorys and its default value. and other catagories with index list
-  int selectedCat = -1;
+  int selectedCatIndex = -1;
   //
 
-  updateSelectCat(int cat) {
-    selectedCat = cat;
+  updateSelectCatIndex(int cat) {
+    selectedCatIndex = cat;
     update();
   }
 
+  updateSelectedCat(Catagory catagory) {
+    selectedCatagory = catagory;
+    update();
+  }
+
+  Catagory? selectedCatagory;
   getCategories() async {
     try {
       if (catagoriesList.isEmpty) {

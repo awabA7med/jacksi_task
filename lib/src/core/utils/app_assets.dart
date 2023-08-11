@@ -1,6 +1,8 @@
 class AppAssets {
   //
   static const String add = 'assets/icons/add.svg';
+  static const String delete = 'assets/icons/delete.svg';
+  static const String dropdown = 'assets/icons/check.svg';
   static const String horizantal = 'assets/icons/horizontal.svg';
   //
   //

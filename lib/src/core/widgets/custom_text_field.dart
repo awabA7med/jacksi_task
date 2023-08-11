@@ -1,57 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:jacksi_task/src/core/utils/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-    required this.size,
-    required this.icon,
     required this.hintText,
-    required this.isObserved,
-    this.suffixIcon,
-    this.textEditingController,
+    required this.textEditingController,
+    required this.maxLength,
+    this.keyboardType = TextInputType.text,
   });
 
-  final Size size;
-  final IconData icon;
   final String hintText;
-  final bool isObserved;
-  final Widget? suffixIcon;
   final TextEditingController? textEditingController;
+  final int maxLength;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+    return SizedBox(
+      width: Get.width,
+      height: 60, //
       child: TextFormField(
-        cursorColor: AppColors.primary,
+        textInputAction: TextInputAction.done,
         controller: textEditingController,
+        cursorColor: AppColors.primary,
+        keyboardType: keyboardType,
+        maxLength: maxLength,
+        textAlign: TextAlign.start,
         decoration: InputDecoration(
-          prefixIcon: Icon(
-            icon,
-            size: 18,
-          ),
-          suffixIcon: suffixIcon,
-          prefixIconColor: Colors.black38,
-          suffixIconColor: Colors.black38,
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.black38, fontSize: 13),
+          counterText: "",
           filled: true,
-          fillColor: const Color(0xfff4f4f4),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Color(0xfff4f4f4))),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Color(0xfff4f4f4))),
-          errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Color(0xfff4f4f4))),
+          fillColor: Colors.white,
+          hintText: hintText,
+          hintStyle: const TextStyle(
+            fontSize: 14,
+          ),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: const BorderSide(color: Color(0xfff4f4f4))),
+            borderRadius: BorderRadius.circular(14),
+            borderSide: const BorderSide(color: AppColors.hint, width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
+            gapPadding: 0,
+            borderRadius: BorderRadius.circular(14),
+            borderSide: const BorderSide(color: AppColors.primary, width: 1),
+          ),
         ),
-        obscureText: isObserved,
       ),
     );
   }

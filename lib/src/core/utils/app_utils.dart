@@ -4,17 +4,17 @@ import 'package:image_picker/image_picker.dart';
 class AppUtils {
   static Future<List<XFile>?> pickImages() async {
     try {
-      List<XFile>? files = await ImagePicker().pickMultiImage(
-        requestFullMetadata: false,
-      );
+      List<XFile>? files =
+          await ImagePicker().pickMultiImage(requestFullMetadata: false);
 
       if (files.isNotEmpty) {
         return files;
+      } else {
+        return null;
       }
     } catch (e) {
-      rethrow;
+      return null;
     }
-    return null;
   }
 
   static captureImage(List<XFile> images) async {
@@ -25,8 +25,6 @@ class AppUtils {
       if (file != null && images.contains(XFile(file.path)) == false) {
         images.add(XFile(file.path));
         Get.snackbar("نجاح", "تمت اضافة صورة بنجاح");
-      } else {
-        return null;
       }
       if (Get.isBottomSheetOpen!) {
         Get.back();
@@ -34,18 +32,14 @@ class AppUtils {
 
       return images;
     } catch (e) {
-      Get.snackbar('8'.tr, "764".tr);
-      return null;
+      rethrow;
     }
   }
 
-  static reanimateCameraImage(XFile image, List<XFile> images) async {
+  static deleteImage(XFile image, List<XFile> images) async {
     try {
       images.removeWhere((element) => element == image);
-      if (Get.isBottomSheetOpen!) {
-        Get.back();
-      }
-      Get.snackbar('765'.tr, '768'.tr);
+      Get.snackbar('نجاح', 'تم حذف الصورة بنجاح');
       return images;
     } catch (e) {
       return null;
