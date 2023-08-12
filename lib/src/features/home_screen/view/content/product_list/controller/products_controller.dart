@@ -13,7 +13,7 @@ class ProductsController extends GetxController {
   getProducts(catIndex) async {
     try {
       // visiblity == false ? visiblity = true : null;
-      update();
+      // update();
       //
 
       productsList.clear();
@@ -24,7 +24,7 @@ class ProductsController extends GetxController {
         // get Data from remote data sourse
 
         Box productsBox = Hive.box<Product>(AppStrings.productsBox);
-        productsBox.clear();
+        // productsBox.clear();
         List<Product?> responseList = productsBox.keys.map((key) {
           Product product = productsBox.get(key);
           if (catIndex == -1) {
