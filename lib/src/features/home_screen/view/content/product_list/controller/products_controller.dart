@@ -53,6 +53,7 @@ class ProductsController extends GetxController {
         responseList.isNotEmpty
             ? productsList = responseList
             : productsList.clear();
+        update();
       }
 
       Future.delayed(const Duration(seconds: 2)).then((value) {

@@ -13,48 +13,53 @@ class ProductVerticalList extends StatelessWidget {
   final ProductsController productsController = Get.find();
   @override
   Widget build(BuildContext context) {
-    return productsController.productsList.isNotEmpty
-        ? ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: productsController.productsList.length,
-            itemBuilder: (context, index) {
-              return productsController.productsList[index] != null
-                  ? Padding(
-                      padding: const EdgeInsets.only(bottom: 14),
-                      child: SizedBox(
-                        height: Get.height * .12,
-                        width: Get.width,
-                        child: Row(
-                          children: [
-                            // Image part
+    return GetBuilder<ProductsController>(
+      builder: (productsController) => SizedBox(
+          child: productsController.productsList.isNotEmpty
+              ? ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: productsController.productsList.length,
+                  itemBuilder: (context, index) {
+                    return productsController.productsList[index] != null
+                        ? Padding(
+                            padding: const EdgeInsets.only(bottom: 14),
+                            child: SizedBox(
+                              height: Get.height * .12,
+                              width: Get.width,
+                              child: Row(
+                                children: [
+                                  // Image part
 
-                            ImageViewer(
-                                image: productsController
-                                    .productsList[index]!.images![0]!.image!),
-                            const SizedBox(width: 14),
+                                  ImageViewer(
+                                      image: productsController
+                                          .productsList[index]!
+                                          .images![0]!
+                                          .image!),
+                                  const SizedBox(width: 14),
 
-                            ProductContent(
-                              name: productsController
-                                      .productsList[index]!.name ??
-                                  "",
-                              storeName: productsController
-                                  .productsList[index]!.storeName!,
-                              currency: productsController
-                                  .productsList[index]!.currency!,
-                              price: productsController
-                                  .productsList[index]!.price
-                                  .toString(),
+                                  ProductContent(
+                                    name: productsController
+                                            .productsList[index]!.name ??
+                                        "",
+                                    storeName: productsController
+                                        .productsList[index]!.storeName!,
+                                    currency: productsController
+                                        .productsList[index]!.currency!,
+                                    price: productsController
+                                        .productsList[index]!.price
+                                        .toString(),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ],
-                        ),
-                      ),
-                    )
-                  : const SizedBox();
-            },
-          )
-        : const Center(
-            child: SmallText(text: "لا توجد منتجات مضافه"),
-          );
+                          )
+                        : const SizedBox();
+                  },
+                )
+              : const Center(
+                  child: SmallText(text: "لا توجد منتجات مضافه"),
+                )),
+    );
   }
 }
