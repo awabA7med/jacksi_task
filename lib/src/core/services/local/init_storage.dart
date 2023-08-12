@@ -17,8 +17,8 @@ class AppStorage {
     Hive.registerAdapter(ImagesAdapter());
     Hive.registerAdapter(CatagoryAdapter());
     //
-    await Hive.openBox(AppStrings.productsBox);
-    await Hive.openBox<Product>(AppStrings.imagesBox);
-    await Hive.openBox<Product>(AppStrings.catagoriesBox);
+    await Hive.openBox<Product>(AppStrings.productsBox);
+    await Hive.openBox<Images>(AppStrings.imagesBox);
+    await Hive.openBox<Catagory>(AppStrings.catagoriesBox);
   }
 }

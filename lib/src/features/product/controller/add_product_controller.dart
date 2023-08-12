@@ -4,10 +4,13 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:jacksi_task/src/config/app_settings.dart';
 import 'package:jacksi_task/src/core/utils/app_strings.dart';
 import 'package:jacksi_task/src/core/utils/constants.dart';
 import 'package:jacksi_task/src/core/validators/validators.dart';
 import 'package:jacksi_task/src/features/home_screen/view/content/catagories/controller/catagories_controller.dart';
+import 'package:jacksi_task/src/features/home_screen/view/content/product_list/controller/products_controller.dart';
+import 'package:jacksi_task/src/features/home_screen/view/home_screen.dart';
 import 'package:jacksi_task/src/features/product/model/images.dart';
 import 'package:jacksi_task/src/features/product/model/product.dart';
 
@@ -105,7 +108,7 @@ class AddProductController extends GetxController {
   }
 
   storeProduct() async {
-    Box productsBox = Hive.box(AppStrings.productsBox);
+    Box productsBox = Hive.box<Product>(AppStrings.productsBox);
     productsBox
         .add(
       Product(
@@ -121,6 +124,18 @@ class AddProductController extends GetxController {
     )
         .then((value) {
       log(productsBox.values.length.toString());
+      refreshProducts();
+      Get.off(() => const HomeScreen());
+      Get.snackbar('نجاح', 'تم اضافة منتج بنجاح');
     });
+  }
+
+  refreshProducts() {
+    if (Get.find<AppSettings>().hasConnection.value == true) {
+      // refresh data to api and local
+    } else {
+      //
+      Get.find<ProductsController>().getProducts(-1);
+    }
   }
 }

@@ -5,6 +5,7 @@ import 'package:jacksi_task/src/core/utils/app_colors.dart';
 import 'package:jacksi_task/src/core/widgets/small_text.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:jacksi_task/src/features/home_screen/view/content/catagories/controller/catagories_controller.dart';
+import 'package:jacksi_task/src/features/home_screen/view/content/product_list/controller/products_controller.dart';
 
 class AllCatWidget extends StatelessWidget {
   AllCatWidget({super.key});
@@ -16,6 +17,7 @@ class AllCatWidget extends StatelessWidget {
         splashColor: Colors.transparent,
         onTap: () {
           catagoriesController.updateSelectCatIndex(-1);
+          Get.find<ProductsController>().getProducts(-1);
         },
         child: Padding(
           padding: const EdgeInsetsDirectional.only(start: 16),

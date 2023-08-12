@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:jacksi_task/src/core/utils/app_colors.dart';
 import 'package:jacksi_task/src/core/widgets/small_text.dart';
 import 'package:jacksi_task/src/features/home_screen/view/content/catagories/controller/catagories_controller.dart';
+import 'package:jacksi_task/src/features/home_screen/view/content/product_list/controller/products_controller.dart';
 
 class CatagoryCard extends StatelessWidget {
   const CatagoryCard(
@@ -17,6 +18,8 @@ class CatagoryCard extends StatelessWidget {
         splashColor: Colors.transparent,
         onTap: () {
           catagoriesController.updateSelectCatIndex(index);
+
+          Get.find<ProductsController>().getProducts(index);
         },
         child: Padding(
           padding: const EdgeInsetsDirectional.only(start: 10),

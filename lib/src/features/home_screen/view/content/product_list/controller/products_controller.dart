@@ -1,71 +1,66 @@
 import 'package:get/get.dart';
-import 'package:jacksi_task/src/core/utils/app_assets.dart';
-import 'package:jacksi_task/src/features/home_screen/view/content/catagories/model/catagory.dart';
-import 'package:jacksi_task/src/features/product/model/images.dart';
+import 'package:hive/hive.dart';
+import 'package:jacksi_task/src/config/app_settings.dart';
 import 'package:jacksi_task/src/features/product/model/product.dart';
+import '../../../../../../core/utils/app_strings.dart';
 
 class ProductsController extends GetxController {
   //
-  List<Product> productsList = [
-    Product(
-      id: 1,
-      name: "هذا النص هو مثال لنص",
-      price: 200,
-      currency: "دولار",
-      storeName: "اسم المتجر",
-      catagory: Catagory(id: 1, name: "تصنيف 1", icon: AppAssets.cat1),
-      images: [
-        Images(id: 1, image: AppAssets.product1),
-      ],
-    ),
-    Product(
-      id: 2,
-      name: "product 2",
-      price: 130,
-      storeName: "اسم المتجر",
-      currency: "دولار",
-      catagory: Catagory(id: 1, name: "تصنيف 1", icon: AppAssets.cat1),
-      images: [
-        Images(id: 1, image: AppAssets.product2),
-      ],
-    ),
-    Product(
-      id: 3,
-      name: "product 3",
-      price: 220,
-      storeName: "اسم المتجر",
-      currency: "دولار",
-      catagory: Catagory(id: 2, name: "تصنيف 2", icon: AppAssets.cat2),
-      images: [
-        Images(id: 1, image: AppAssets.product3),
-      ],
-    ),
-    Product(
-      id: 4,
-      name: "product 4",
-      price: 220,
-      storeName: "اسم المتجر",
-      currency: "دولار",
-      catagory: Catagory(id: 3, name: "تصنيف 3", icon: AppAssets.cat3),
-      images: [
-        Images(id: 1, image: AppAssets.product4),
-      ],
-    ),
-  ];
+  List<Product?> productsList = [];
 
-  bool isLoading = true;
+  bool visiblity = false;
 
-  getCategories() async {
+  getProducts(catIndex) async {
     try {
-      isLoading = true;
+      // visiblity == false ? visiblity = true : null;
       update();
-      // var response = await RemoteServices().postData("/categories", {});
-      // if (response != null && response.data['code'] == 1) {
-      //   categoriesList = (response.data["data"] as List)
-      //       .map((e) => Catagories.fromJson(e))
-      //       .toList();
-      // update();
-      isLoading = false;
+      //
+
+      productsList.clear();
+
+      //
+      // here is example if we have backend
+      if (Get.find<AppSettings>().hasConnection.value == true) {
+        // get Data from remote data sourse
+
+        Box productsBox = Hive.box<Product>(AppStrings.productsBox);
+        productsBox.clear();
+        List<Product?> responseList = productsBox.keys.map((key) {
+          Product product = productsBox.get(key);
+          if (catIndex == -1) {
+            // means user want all catagories
+            return product;
+          } else if (product.catagory!.id == catIndex) {
+            return product;
+          }
+        }).toList();
+        responseList.isNotEmpty
+            ? productsList = responseList
+            : productsList.clear();
+      } else {
+        // get data from local data source
+
+        Box productsBox = Hive.box<Product>(AppStrings.productsBox);
+        List<Product?> responseList = productsBox.keys.map((key) {
+          Product product = productsBox.get(key);
+          if (catIndex == -1) {
+            // means user want all catagories
+            return product;
+          } else if (product.catagory!.id == catIndex) {
+            return product;
+          }
+        }).toList();
+        responseList.isNotEmpty
+            ? productsList = responseList
+            : productsList.clear();
+      }
+
+      Future.delayed(const Duration(seconds: 2)).then((value) {
+        visiblity = true;
+        update();
+      });
+
+      //
     } catch (e) {
       rethrow;
     }
