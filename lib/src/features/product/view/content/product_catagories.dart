@@ -5,7 +5,7 @@ import 'package:jacksi_task/src/core/utils/app_assets.dart';
 import 'package:jacksi_task/src/core/utils/app_colors.dart';
 import 'package:jacksi_task/src/core/widgets/small_text.dart';
 import 'package:jacksi_task/src/features/home_screen/view/content/catagories/controller/catagories_controller.dart';
-import 'package:jacksi_task/src/features/home_screen/view/content/catagories/model/category.dart';
+import 'package:jacksi_task/src/features/home_screen/view/content/catagories/model/catagory.dart';
 
 class CatagoriesDropdown extends StatefulWidget {
   const CatagoriesDropdown({

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:jacksi_task/src/core/utils/app_assets.dart';
-import 'package:jacksi_task/src/features/home_screen/view/content/catagories/model/category.dart';
-import 'package:jacksi_task/src/features/product/model/image.dart';
+import 'package:jacksi_task/src/features/home_screen/view/content/catagories/model/catagory.dart';
+import 'package:jacksi_task/src/features/product/model/images.dart';
 import 'package:jacksi_task/src/features/product/model/product.dart';
 
 class ProductsController extends GetxController {

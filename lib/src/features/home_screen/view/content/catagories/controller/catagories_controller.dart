@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:jacksi_task/src/core/utils/app_assets.dart';
-import '../model/category.dart';
+import '../model/catagory.dart';
 
 class CatagoriesController extends GetxController {
   //

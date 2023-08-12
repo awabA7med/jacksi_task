@@ -7,8 +7,6 @@ import 'package:jacksi_task/src/features/product/view/content/product_app_bar.da
 import 'package:jacksi_task/src/features/product/view/content/product_catagories.dart';
 import 'package:jacksi_task/src/features/product/view/content/product_form.dart';
 import 'package:jacksi_task/src/features/product/view/content/product_images/product_image_picker.dart';
-import 'package:jacksi_task/src/features/product/view/content/product_images/upload_image.dart';
-import 'content/product_images/plus_icon.dart';
 
 class AddProductScreen extends StatelessWidget {
   AddProductScreen({super.key});
@@ -45,8 +43,8 @@ class AddProductScreen extends StatelessWidget {
                 bool? isValid = addProductController.validateProductValues();
                 if (isValid == true) {
                   // send data
-                  var data = {};
-                  addProductController.storeProduct(data);
+
+                  addProductController.storeProduct();
                 }
               },
             )

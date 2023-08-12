@@ -6,6 +6,7 @@ import 'package:jacksi_task/src/core/utils/app_assets.dart';
 import 'package:jacksi_task/src/core/utils/app_colors.dart';
 import 'package:jacksi_task/src/core/utils/app_utils.dart';
 import 'package:jacksi_task/src/core/widgets/custom_button.dart';
+import 'package:jacksi_task/src/core/widgets/error_text.dart';
 import 'package:jacksi_task/src/core/widgets/small_text.dart';
 import 'package:jacksi_task/src/features/product/controller/add_product_controller.dart';
 import 'package:jacksi_task/src/features/product/view/content/product_images/plus_icon.dart';
@@ -101,6 +102,8 @@ class ProductImagePicker extends StatelessWidget {
               Get.bottomSheet(uploadProductImage());
             },
           ),
+
+          errorText(addProductController.errorProductImages)
         ],
       ),
     );

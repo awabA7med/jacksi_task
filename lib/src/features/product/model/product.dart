@@ -1,18 +1,29 @@
-import 'package:jacksi_task/src/features/home_screen/view/content/catagories/model/category.dart';
+import 'package:hive/hive.dart';
+import 'package:jacksi_task/src/features/home_screen/view/content/catagories/model/catagory.dart';
 import 'dart:convert';
 
-import 'package:jacksi_task/src/features/product/model/image.dart';
+import 'package:jacksi_task/src/features/product/model/images.dart';
+
+part 'product.g.dart';
 
 List<Product> catagoriesFromJson(String str) =>
     List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
 
-class Product {
+@HiveType(typeId: 1)
+class Product extends HiveObject {
+  @HiveField(0)
   int? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   String? storeName;
+  @HiveField(3)
   num? price;
+  @HiveField(4)
   String? currency;
+  @HiveField(5)
   Catagory? catagory;
+  @HiveField(6)
   List<Images?>? images;
 
   Product({
